@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= list.playlistName %></title>
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1><%= list.playlistName %></h1>
+        <ul class="lists">
+            <li><b>Playlist name:</b><%= list.playlistName %></li>
+            <li><b>Link:</b><a href="<%= list.playlistLink %>"><%= list.playlistLink %></a></li>
+            <li><b>Type:</b><a target="_blank" href="/playlists?playlistType=<%= list.playlistType %>"><%= list.playlistType %></a></li>
+        </ul>
+        <a href='/playlists'><button class="btn1">All playlists</button></a> 
+        <a href='/playlists/<%= list._id %>/edit'><button class="btn1">Edit playlist</button></a>
+        <br />
+        <form action="/playlists/<%= list._id %>?_method=DELETE" method="post">
+            <button class="btn2">DELETE</button>
+        </form>
+    </div>
+</body>
+</html>

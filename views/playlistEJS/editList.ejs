@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EditPlaylist</title>
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Edit playlist</h1>
+        <form class="form" action="/playlists/<%= list._id %>?_method=PUT" method="post">
+            <label for="playlistName">Playlist name:</label>
+            <input type="text" name="playlistName" id="playlistName" placeholder="Name of the playlist" value="<%= list.playlistName %>">
+        
+            <label for="playlistLink">Playlist link:</label>
+            <input type="text" name="playlistLink" id="playlistLink" placeholder="Playlist link" value="<%= list.playlistLink %>">
+        
+            <label for="playlistType">Select type:</label>
+            <select name="playlistType" id="playlistType">
+                <% for(let type of types){ %>
+                    <option value='<%= type  %>' <%= list.playlistType===type?'selected':'' %>><%= type %></option>
+                <% } %>
+            </select>
+            <button class="btn1-sbmt">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlists</title>
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1><%= playlistType %> playlists</h1>
+        <ol class="lists">
+            <% for(let list of lists){ %>
+                <li>
+                    <b><a href="/playlists/<%= list._id %>"><%= list.playlistName %></a></b>
+                </li>
+            <% } %>
+        </ol>
+        <a href='/playlists/add'><button class="btn1">Add new playlist</button></a>
+        <% if(playlistType !== 'All'){ %>
+            <a href='/playlists'><button class="btn1">All playlists</button></a>
+        <% } %>
+    </div>
+</body>
+</html>
